@@ -18,7 +18,7 @@ componentDidMount() {
 loginStatus = () => {
     fetch('http://localhost:3001/logged_in')
     .then(response => {
-      if (response.data.logged_in) {
+      if (response.logged_in) {
         this.handleLogin(response)
       } else {
         this.handleLogout()

@@ -29,7 +29,8 @@ handleSubmit = (event) => {
       username: username,
       email: email,
       password: password,
-      password_confirmation: password_confirmation
+      password_confirmation: password_confirmation,
+      status: "created"
     }
 
     fetch('http://localhost:3001/users', {
@@ -43,12 +44,13 @@ handleSubmit = (event) => {
 
     .then(r => r.json())
     .then(response => {
-      if (response.data.status === 'created') {
-        this.props.handleLogin(response.data)
+      debugger
+      if (response.status === 'created') {
+        this.props.handleLogin(response)
         this.redirect()
       } else {
         this.setState({
-          errors: response.data.errors
+          errors: response.errors
         })
       }
     })
