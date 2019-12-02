@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Home from './components/Main/Home'
 import Login from './components/registration/Login'
@@ -16,7 +16,7 @@ componentDidMount() {
     this.loginStatus()
   }
 loginStatus = () => {
-    axios.get('http://localhost:3001/logged_in', {withCredentials: true})
+    fetch('http://localhost:3001/logged_in')
     .then(response => {
       if (response.data.logged_in) {
         this.handleLogin(response)

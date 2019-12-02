@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+
 import {Link} from 'react-router-dom'
 class Login extends Component {
   constructor(props) {
@@ -29,7 +29,15 @@ let user = {
       password: password
     }
     
-    axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
+    fetch('http://localhost:3001/login', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({user})
+    })
+    .then(r => r.json())
     .then(response => {
       if (response.data.logged_in) {
         this.props.handleLogin(response.data)

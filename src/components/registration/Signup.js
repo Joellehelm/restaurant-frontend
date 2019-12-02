@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 class Signup extends Component {
 
 
@@ -32,7 +31,17 @@ handleSubmit = (event) => {
       password: password,
       password_confirmation: password_confirmation
     }
-axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
+
+    fetch('http://localhost:3001/users', {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify({user})
+})
+
+    .then(r => r.json())
     .then(response => {
       if (response.data.status === 'created') {
         this.props.handleLogin(response.data)
@@ -63,7 +72,7 @@ handleErrors = () => {
   }
 
 
-  
+
 render() {
     const {username, email, password, password_confirmation} = this.state
 return (
