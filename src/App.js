@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Home from './components/main/Home'
 import Login from './components/registration/Login'
 import Signup from './components/registration/Signup'
+import NavBar from './components/NavBar/NavBar'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,7 @@ componentDidMount() {
   }
 loginStatus = () => {
     fetch('http://localhost:3001/logged_in')
+    .then(r => r.json())
     .then(response => {
       if (response.logged_in) {
         this.handleLogin(response)
@@ -41,12 +43,13 @@ handleLogout = () => {
 render() {
     return (
       <div>
+        <NavBar user={this.state.user}/>
         <BrowserRouter>
           <Switch>
             <Route 
               exact path='/' 
               render={props => (
-              <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+              <Home {...props} user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
             <Route 
