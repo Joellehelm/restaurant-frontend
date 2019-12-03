@@ -4,7 +4,14 @@ import Reviews from './reviews'
 import Search from './Search'
 
 class RestaurantContainer extends Component {
+    constructor(){
+        super()
 
+        this.state = {
+            city: "",
+            foodtype: ""
+        }
+    }
     
 
 
