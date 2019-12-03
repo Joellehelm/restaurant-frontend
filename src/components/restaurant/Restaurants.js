@@ -14,7 +14,7 @@ class Restaurants extends Component {
 
     componentDidMount(){
        
-        const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurant+Austin&radius=1500&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         this.setState({url: url})
 
