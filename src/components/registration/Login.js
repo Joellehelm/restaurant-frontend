@@ -39,12 +39,12 @@ let user = {
     })
     .then(r => r.json())
     .then(response => {
-      if (response.data.logged_in) {
-        this.props.handleLogin(response.data)
+      if (response.logged_in) {
+        this.props.handleLogin(response)
         this.redirect()
       } else {
         this.setState({
-          errors: response.data.errors
+          errors: response.errors
         })
       }
     })
