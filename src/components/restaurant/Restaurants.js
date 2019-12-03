@@ -10,11 +10,8 @@ class Restaurants extends Component {
         }
     }
 
-
-
-    componentDidMount(){
-       
-        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurant+Austin&radius=1500&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+    fetchPlaces = () => {
+        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.props.city}&radius=15000&type=${this.props.placeType}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         this.setState({url: url})
 
@@ -23,6 +20,11 @@ class Restaurants extends Component {
         .then(response => {
             this.setState({data: response.results})
         })
+    }
+
+    componentDidMount(){
+       
+       this.fetchPlaces()
     
     }
 
@@ -40,6 +42,8 @@ class Restaurants extends Component {
          
            return <RestaurantCard name={place.name} photo={picture} rating={place.rating} pricelevel={place.pricelevel} key={idx}/>
         })
+
+       
     }
 
 
@@ -53,6 +57,7 @@ class Restaurants extends Component {
 
         return (
             <div>
+              
                {this.showRestaurants()}
               
                 

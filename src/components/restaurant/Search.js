@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 
 class Search extends Component {
-   state = {
-       city: '',
-       foodType: ''
-   }
-   
+  
 
-   handleChange = (event) => {
-       this.setState({ [event.target.name]: event.target.value})
-   }
-
+  
    
    
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.props.handleSubmit}>
             <label> City </label>
-            <input type='text' name="city" onChange={this.handleChange} />
+            <input type='text' name="city" onChange={this.props.handleChange} />
 
-            <label> Food Type </label>
-            <input type='text' name="foodType" onChange={this.handleChange} />
+            <label> Place Type </label>
+            <input type='text' name="placeType" onChange={this.props.handleChange} />
 
             <input type="submit" value="Submit" />
             </form>

@@ -9,17 +9,35 @@ class RestaurantContainer extends Component {
 
         this.state = {
             city: "",
-            foodtype: ""
+            placeType: "",
+            searched: false,
+         
         }
     }
     
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.setState({searched: true})
+      
+    }
+
+    handleChange = (event) => {
+        this.setState({test: !this.state.test})
+      
+        this.setState({ [event.target.name]: event.target.value})
+        this.setState({searched: false})
+    }
 
 
     render() {
         return (
             <div>
-                <Restaurants user={this.props.user} />
-                <Search />
+                <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+                {this.state.searched === true ?                    
+                <Restaurants city={this.state.city} placeType={this.state.placeType} user={this.props.user} />
+                :
+                null}
+              
             </div>
         );
     }
