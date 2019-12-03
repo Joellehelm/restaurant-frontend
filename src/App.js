@@ -3,11 +3,9 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Home from './components/main/Home'
 import Login from './components/registration/Login'
 import Signup from './components/registration/Signup'
-<<<<<<< HEAD
-
-=======
 import NavBar from './components/NavBar/NavBar'
->>>>>>> 1aebf5f4cc47f0939573941e7e9e7223b96d7c18
+
+
 
 class App extends Component {
   constructor(props) {
