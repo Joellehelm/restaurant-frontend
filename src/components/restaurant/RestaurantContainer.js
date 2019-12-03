@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Restaurants from './Restaurants'
 import Reviews from './reviews'
+import Search from './Search'
 
 class RestaurantContainer extends Component {
 
@@ -11,7 +12,7 @@ class RestaurantContainer extends Component {
         return (
             <div>
                 <Restaurants user={this.props.user} />
-                
+                <Search />
             </div>
         );
     }
