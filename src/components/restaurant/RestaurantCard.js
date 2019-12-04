@@ -9,7 +9,7 @@ class RestaurantCard extends Component {
     render() {
         return (
             <div>
-                <h1>HELLo</h1>
+                <h1>{this.props.name}</h1>
                 <img src={this.props.photo} />
             </div>
         );
