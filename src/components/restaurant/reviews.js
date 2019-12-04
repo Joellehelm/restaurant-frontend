@@ -7,7 +7,7 @@ class Reviews extends Component {
 
         this.state = {
             reviews: []
-        
+            
         }
     }
 
@@ -24,11 +24,12 @@ class Reviews extends Component {
             },
             body: JSON.stringify({comment: event.target.review.value, user_id: this.props.user.id, restaurant_id: this.props.placeId})
         })
+
+        this.fetchReviews()
         
     }
 
-
-    componentDidMount(){
+    fetchReviews = () => {
         fetch('http://localhost:3001/reviews')
         .then(r => r.json())
         .then(reviews => {
@@ -41,18 +42,14 @@ class Reviews extends Component {
             
             if(theseReviews.length > 0){
                 this.setState({reviews: theseReviews})
-            }
-
-        
+            } 
             
         })
+    }
 
 
-        // if(this.state.reviews.length > 0){
-           
-        //     this.showReviewCards()
-        // }
-
+    componentDidMount(){
+        this.fetchReviews()
      
     }
 
@@ -61,8 +58,8 @@ class Reviews extends Component {
         if(this.state.reviews.length > 0){
   
             return this.state.reviews.map((review, idx) => {
-              
-                return <ReviewCard comment={review.comment} key={idx} />
+          
+                return <ReviewCard comment={review.comment} username={review.user.username} key={idx} />
             })
         }
 
