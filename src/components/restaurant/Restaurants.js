@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import RestaurantCard from './RestaurantCard'
+import ShowRestaurant from './ShowRestaurant'
 
 class Restaurants extends Component {
     constructor(){
         super()
 
         this.state = {
-            data: null
+            data: null,
+            placeUrl: null
         }
     }
 
     fetchPlaces = () => {
         const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.props.city}&radius=15000&type=${this.props.placeType}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        this.setState({url: url})
 
-        fetch(proxyurl + url, {
+        fetch(this.props.proxyUrl + url, {
             method: "GET",
             headers: {
                 "mode": "no-cors"
@@ -23,7 +23,7 @@ class Restaurants extends Component {
         })
         .then(r => r.json())
         .then(response => {
-        
+          
             this.setState({data: response.results})
         })
     }
@@ -34,7 +34,6 @@ class Restaurants extends Component {
     
     }
 
-  
 
         
     showRestaurants = () => {
@@ -48,13 +47,13 @@ class Restaurants extends Component {
                 const imageurl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + pic.photo_reference + '&key=' + process.env.REACT_APP_GOOGLE_API_KEY; 
                 return imageurl
                 }))
+                  
             
-         
-           return <RestaurantCard name={place.name} photo={picture} rating={place.rating} pricelevel={place.pricelevel} key={idx}/>
-        })
-
-       
+           return <RestaurantCard showPlace={this.props.showPlace} placeId={place.place_id} name={place.name} photo={picture} rating={place.rating} pricelevel={place.pricelevel} key={idx}/>
+        })  
     }
+
+
 
 
 
@@ -62,15 +61,12 @@ class Restaurants extends Component {
     render() {
 
         if (!this.state.data){
-            return <div />
+            return <div>wrong</div>
         }
 
         return (
-            <div>
-              
+            <div>            
                {this.showRestaurants()}
-              
-                
             </div>
         );
     }
