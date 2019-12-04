@@ -15,7 +15,9 @@ class RestaurantContainer extends Component {
             placeClicked: false,
             placeName: null,
             placeAddress: null,
-            placePhone: null
+            placePhone: null,
+            placePhoto: null,
+            placeRating: null
          
         }
     }
@@ -35,7 +37,7 @@ class RestaurantContainer extends Component {
 
 
     showPlace = (placeId) => {
-        const placeUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,formatted_phone_number&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+        const placeUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,photo,formatted_phone_number,formatted_address&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
         this.setState({placeClicked: true, placeUrl: placeUrl})
         
     }
@@ -45,11 +47,13 @@ class RestaurantContainer extends Component {
         fetch(this.state.proxyUrl + this.state.placeUrl)
         .then(r => r.json())
         .then(place => {
-          
-            this.setState({placeName: place.result.name})
-           
+        
+            const imageurl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + place.result.photos[0].photo_reference + '&key=' + process.env.REACT_APP_GOOGLE_API_KEY; 
+                
+            this.setState({placeName: place.result.name, placePhoto: imageurl, placePhone: place.result.formatted_phone_number, placeRating: place.result.rating, placeAddress: place.result.formatted_address})
+            
         })
-        return <ShowRestaurant name={this.state.placeName} />
+        return <ShowRestaurant name={this.state.placeName} photo={this.state.placePhoto} phone={this.state.placePhone} rating={this.state.placeRating} address={this.state.placeAddress}/>
     }
 
 
