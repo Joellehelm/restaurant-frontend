@@ -17,7 +17,8 @@ class RestaurantContainer extends Component {
             placeAddress: null,
             placePhone: null,
             placePhoto: null,
-            placeRating: null
+            placeRating: null,
+            placeId: null
          
         }
     }
@@ -37,7 +38,7 @@ class RestaurantContainer extends Component {
 
 
     showPlace = (placeId) => {
-        const placeUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,photo,formatted_phone_number,formatted_address&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+        const placeUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,place_id,photo,formatted_phone_number,formatted_address&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
         this.setState({placeClicked: true, placeUrl: placeUrl})
         
     }
@@ -47,13 +48,13 @@ class RestaurantContainer extends Component {
         fetch(this.state.proxyUrl + this.state.placeUrl)
         .then(r => r.json())
         .then(place => {
-        
+     
             const imageurl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + place.result.photos[0].photo_reference + '&key=' + process.env.REACT_APP_GOOGLE_API_KEY; 
                 
-            this.setState({placeName: place.result.name, placePhoto: imageurl, placePhone: place.result.formatted_phone_number, placeRating: place.result.rating, placeAddress: place.result.formatted_address})
+            this.setState({placeName: place.result.name, placeId: place.result.place_id, placePhoto: imageurl, placePhone: place.result.formatted_phone_number, placeRating: place.result.rating, placeAddress: place.result.formatted_address})
             
         })
-        return <ShowRestaurant name={this.state.placeName} photo={this.state.placePhoto} phone={this.state.placePhone} rating={this.state.placeRating} address={this.state.placeAddress}/>
+        return <ShowRestaurant user={this.props.user} name={this.state.placeName} placeId={this.state.placeId} photo={this.state.placePhoto} phone={this.state.placePhone} rating={this.state.placeRating} address={this.state.placeAddress}/>
     }
 
 
