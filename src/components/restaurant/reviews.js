@@ -57,9 +57,9 @@ class Reviews extends Component {
 
     handleDelete = () => {
         let url = 'http://localhost:3001/reviews'
-        let review = this.state.reviews.id
+        let review = this.state.review.id
         // debugger
-        console.log(this.state.reviews.id)
+        console.log(this.state.review.id)
         return fetch(url + '/' + review, {
             method: 'DELETE'
         }) 
@@ -78,6 +78,9 @@ class Reviews extends Component {
                         <ReviewCard
                         comment={review.comment} 
                         username={review.user.username} 
+                        currentUser={this.props.user}
+                        commentUserId={review.user_id}
+                        reviewId={review.id}
                         />
 
                         <button onClick={this.handleDelete}>
@@ -86,9 +89,7 @@ class Reviews extends Component {
                         </React.Fragment>
                 
             )}
-        }
-
-        
+        )}  
     }
 
 
