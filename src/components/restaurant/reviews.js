@@ -53,14 +53,37 @@ class Reviews extends Component {
      
     }
 
+    handleDelete = () => {
+        let url = 'http://localhost:3001/reviews'
+        let review = this.state.reviews.id
+        // debugger
+        console.log(this.state.reviews.id)
+        return fetch(url + '/' + review, {
+            method: 'DELETE'
+        }) 
+        .then(r => r.json())
+    }
+
     showReviewCards = () => {
 
         if(this.state.reviews.length > 0){
   
             return this.state.reviews.map((review, idx) => {
           
-                return <ReviewCard comment={review.comment} username={review.user.username} key={idx} />
-            })
+                return( 
+                        <React.Fragment key={idx}>
+                        
+                        <ReviewCard
+                        comment={review.comment} 
+                        username={review.user.username} 
+                        />
+
+                        <button onClick={this.handleDelete}>
+                        {'DESTROY'}
+                        </button>
+                        </React.Fragment>
+                
+            )})
         }
 
         
@@ -73,11 +96,16 @@ class Reviews extends Component {
                 <h1>Reviews</h1>
                 <div>
                     {this.state.reviews.length > 0 ? this.showReviewCards() : null}
-                    </div>
+                    {/* <button onClick={this.handleDelete}>
+                    {'DESTROY'}
+                    </button> */}
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <textarea id="review-text" name="review"/>
                     <input type="submit" value="Submit" />
                 </form>
+
+
             </div>
         );
     }
