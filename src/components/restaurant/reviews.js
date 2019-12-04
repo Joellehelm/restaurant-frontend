@@ -8,17 +8,17 @@ class Reviews extends Component {
         event.preventDefault()
         
         console.log(event.target.review.value)
-        console.log(this.props.user)
+        console.log(this.props.user.id)
+        console.log(this.props.placeId)
 
         fetch('http://localhost:3001/reviews', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "accept": "application/json"
+                "Accept": "application/json"
             },
-            body: JSON.stringify({comment: event.target.review.value, user_id: this.props.user.id, restaurant_id: this.props.placeId })
+            body: JSON.stringify({comment: event.target.review.value, user_id: this.props.user.id, restaurant_id: this.props.placeId})
         })
-        
         
     }
 
