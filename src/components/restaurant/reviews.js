@@ -58,8 +58,8 @@ class Reviews extends Component {
         if(this.state.reviews.length > 0){
   
             return this.state.reviews.map((review, idx) => {
-          
-                return <ReviewCard comment={review.comment} username={review.user.username} key={idx} />
+                debugger
+                return <ReviewCard comment={review.comment} reviewId={review.id} currentUser={this.props.user} commentUserId={review.user_id} username={review.user.username} key={idx} />
             })
         }
 
