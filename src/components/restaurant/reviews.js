@@ -83,7 +83,7 @@ class Reviews extends Component {
                         </button>
                         </React.Fragment>
                 
-            )})
+            )}
         }
 
         
