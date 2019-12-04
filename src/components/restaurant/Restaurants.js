@@ -65,7 +65,7 @@ class Restaurants extends Component {
         }
 
         return (
-            <div>            
+            <div id="restaurant-container">            
                {this.showRestaurants()}
             </div>
         );
