@@ -45,11 +45,13 @@ class Reviews extends Component {
             } 
             
         })
+        this.showReviewCards()
     }
 
 
     componentDidMount(){
         this.fetchReviews()
+        
      
     }
 
@@ -58,7 +60,7 @@ class Reviews extends Component {
         if(this.state.reviews.length > 0){
   
             return this.state.reviews.map((review, idx) => {
-                debugger
+             
                 return <ReviewCard comment={review.comment} reviewId={review.id} currentUser={this.props.user} commentUserId={review.user_id} username={review.user.username} key={idx} />
             })
         }
