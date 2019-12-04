@@ -26,6 +26,9 @@ class ReviewCard extends Component {
             body: JSON.stringify({comment: event.target.reviewEdit.value})
         })
         .then(r => r.json())
+        .then(response => {
+            this.setState({editing: false})
+        })
     }
 
     render() {
