@@ -38,6 +38,9 @@ class ReviewCard extends Component {
             method: 'DELETE'
         }) 
         .then(r => r.json())
+        .then(respone => {
+        this.props.renderReviews()
+        })
     }
 
     render() {
