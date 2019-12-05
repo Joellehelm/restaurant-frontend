@@ -6,17 +6,26 @@
 
 }
 
-html{
+/* html{
 	font-size: 10px;
+	font-family: "Roboto Cn", sans-serif;
+} */
+
+.navtext{
+	text-decoration: none;
+	/* color: #eee; */
+	color: rgba(0,0,0,.5);
+	
 	font-family: "Roboto Cn", sans-serif;
 }
 
-a{
+.brandtext {
 	text-decoration: none;
 	/* color: #eee; */
-	color: rgba(0,0,0,.5)
+	color: rgba(0,0,0,.5);
+	
+	font-family: "Roboto Cn", sans-serif;
 }
-
 
 
 .container{
@@ -39,21 +48,19 @@ a{
 
 nav{
 	padding-top: 3rem;
-	
-	padding-left: 100px;
+	padding-left: 200px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	text-transform: uppercase;
-	font-size: 1.6rem;
+	font-size: 15px;
 	background-color: rgba(252, 252, 252, 0)
-	
-   
+
     
 }
 
 .brand{
-	font-size: 3rem;
+	font-size: 2rem;
 	font-weight: 300;
 	transform: translateX(-100rem);
 	animation: slideIn .5s forwards;
@@ -73,6 +80,11 @@ nav ul li{
 	list-style: none;
 	transform: translateX(100rem);
 	animation: slideIn .5s forwards;
+	text-decoration: none;
+	/* color: #eee; */
+	color: rgba(0,0,0,.5);
+	
+	font-family: "Roboto Cn", sans-serif;
 }
 
 nav ul li:nth-child(1){
