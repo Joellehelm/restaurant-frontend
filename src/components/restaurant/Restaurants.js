@@ -13,7 +13,7 @@ class Restaurants extends Component {
     }
 
     fetchPlaces = () => {
-        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.props.city}&radius=15000&type=${this.props.placeType}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.props.city}&radius=150000&type=${this.props.placeType}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
 
         fetch(this.props.proxyUrl + url, {
             method: "GET",
@@ -23,15 +23,17 @@ class Restaurants extends Component {
         })
         .then(r => r.json())
         .then(response => {
-          
+        
             this.setState({data: response.results})
         })
+       
+      
     }
 
     componentDidMount(){
        
        this.fetchPlaces()
-    
+       
     }
 
 
@@ -48,8 +50,9 @@ class Restaurants extends Component {
                 return imageurl
                 }))
                   
-            
+          
            return <RestaurantCard showPlace={this.props.showPlace} placeId={place.place_id} name={place.name} photo={picture} rating={place.rating} pricelevel={place.pricelevel} key={idx}/>
+   
         })  
     }
 
@@ -61,7 +64,7 @@ class Restaurants extends Component {
     render() {
 
         if (!this.state.data){
-            return <div>wrong</div>
+            return <div></div>
         }
 
         return (

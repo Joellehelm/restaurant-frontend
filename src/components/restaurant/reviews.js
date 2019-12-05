@@ -45,12 +45,13 @@ class Reviews extends Component {
             } 
             
         })
-        this.showReviewCards()
+        
     }
 
 
     componentDidMount(){
         this.fetchReviews()
+        this.showReviewCards()
         
      
     }
