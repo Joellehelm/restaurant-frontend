@@ -4,6 +4,7 @@ import Home from './components/main/Home'
 import Login from './components/registration/Login'
 import Signup from './components/registration/Signup'
 import NavBar from './components/NavBar/NavBar'
+import './App.css'
 
 
 
@@ -44,8 +45,10 @@ handleLogout = () => {
   }
 render() {
     return (
-      <div>
-        <NavBar user={this.state.user}/>
+      
+      <div class="App">
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+        <div class="login">
         <BrowserRouter>
           <Switch>
             <Route 
@@ -68,7 +71,9 @@ render() {
             />
           </Switch>
         </BrowserRouter>
+       </div>
       </div>
+     
     );
   }
 }
