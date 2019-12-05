@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './registration.css'
+import './registration.scss'
 
 import {Link} from 'react-router-dom'
 class Login extends Component {
@@ -24,7 +24,7 @@ handleChange = (event) => {
 handleSubmit = (event) => {
     event.preventDefault()
     const {username, email, password} = this.state
-let user = {
+      let user = {
       username: username,
       email: email,
       password: password
@@ -72,7 +72,7 @@ return (
       <div class="login">
         
       
-        <form onSubmit={this.handleSubmit}>
+        <form class="form" onSubmit={this.handleSubmit}>
           <input
             class="input"
             placeholder="username"
@@ -101,7 +101,7 @@ return (
             <h4 class="logintext">Log In</h4>
           </button>
           <div>
-            or <Link to='/signup'><h4>Sign</h4></Link>
+            or <Link to='/signup'>sign up</Link>
           </div>
           
           </form>

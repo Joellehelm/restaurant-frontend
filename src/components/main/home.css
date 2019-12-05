@@ -4,14 +4,24 @@ a {
 
 
 .logsignlink {
-    padding-top: 200px;
+    
     font-size: 20px;
 }
 
 .logintext {
-    
+    border: solid, black;
 }
 
 .signuptext {
-
+    color: green;
 }
+
+
+#sign {
+    margin-left: 50px;
+}
+
+.login {
+    padding-top: 100px;
+}
+

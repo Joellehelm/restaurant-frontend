@@ -32,9 +32,20 @@ return (
        </div>
        : 
 
-        <div class="logsignlink"> <Link to='/login'><div class="logintext">Log In</div></Link>
+        <div class="logsignlink"> <Link to='/login'>
+          <button class="button" id="login">
+	      Login
+	      <div class="button__horizontal"></div>
+	      <div class="button__vertical"></div>
+        </button>
+        </Link>
         <br></br>
-        <Link to='/signup'><div class="signuptext">Sign Up</div></Link>
+        <Link to='/signup'><div class="signuptext">
+        <button class="button" id="sign">
+	      Sign Up
+	      <div class="button__horizontal"></div>
+	      <div class="button__vertical"></div>
+        </button></div></Link>
         <br></br>
         </div>
       }

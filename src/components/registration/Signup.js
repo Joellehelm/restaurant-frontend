@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './registration.css'
+import './registration.scss'
 class Signup extends Component {
 
 
@@ -81,7 +81,7 @@ render() {
 return (
       <div>
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form class="form" onSubmit={this.handleSubmit}>
           <input
             class="input"
             placeholder="username"
