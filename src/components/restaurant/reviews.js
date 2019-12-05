@@ -24,13 +24,15 @@ class Reviews extends Component {
             },
             body: JSON.stringify({comment: event.target.review.value, user_id: this.props.user.id, restaurant_id: this.props.placeId})
         })
+        event.target.reset()
+        this.fetchReviews()
         .then(r => r.json())
         .then(response => {
 
             this.fetchReviews()
            
         })
-
+        
         
     }
 
