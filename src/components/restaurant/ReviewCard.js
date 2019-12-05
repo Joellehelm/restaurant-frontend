@@ -15,7 +15,7 @@ class ReviewCard extends Component {
 
     editReview = (event) => {
         event.preventDefault()
-        debugger
+      
         fetch(`http://localhost:3001/reviews/${this.props.reviewId}`, {
             method: "PATCH",
             headers: {
@@ -28,6 +28,7 @@ class ReviewCard extends Component {
         .then(r => r.json())
         .then(response => {
             this.setState({editing: false})
+            this.props.renderReviews()
         })
     }
 

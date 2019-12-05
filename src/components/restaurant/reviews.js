@@ -77,6 +77,7 @@ class Reviews extends Component {
                         <React.Fragment key={idx}>
                         
                         <ReviewCard
+                        renderReviews={this.fetchReviews}
                         comment={review.comment} 
                         username={review.user.username} 
                         currentUser={this.props.user}
