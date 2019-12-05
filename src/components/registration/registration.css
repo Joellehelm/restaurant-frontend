@@ -5,7 +5,7 @@
 
 .login {
     padding-top: 130px;
-    text-align: center;
+    text-align: center;   
 }
 
 .input{
@@ -15,3 +15,8 @@
 .button {
     background-color: white;
 }
+
+#logintext {
+    color: red;
+}
+

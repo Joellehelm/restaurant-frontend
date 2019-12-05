@@ -1,5 +1,6 @@
 import React from 'react';
 import MainContainer from './MainContainer'
+import './home.css'
 
 import {Link} from 'react-router-dom'
 const Home = (props) => {
@@ -31,9 +32,9 @@ return (
        </div>
        : 
 
-        <div> <Link to='/login'>Log In</Link>
+        <div class="logsignlink"> <Link to='/login'><div class="logintext">Log In</div></Link>
         <br></br>
-        <Link to='/signup'>Sign Up</Link>
+        <Link to='/signup'><div class="signuptext">Sign Up</div></Link>
         <br></br>
         </div>
       }
