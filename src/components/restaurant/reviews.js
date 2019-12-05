@@ -26,6 +26,12 @@ class Reviews extends Component {
         })
         event.target.reset()
         this.fetchReviews()
+        .then(r => r.json())
+        .then(response => {
+
+            this.fetchReviews()
+           
+        })
         
         
     }

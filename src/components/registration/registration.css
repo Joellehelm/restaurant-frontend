@@ -1,0 +1,17 @@
+/* * {
+ 
+    text-align: center;
+} */
+
+.login {
+    padding-top: 130px;
+    text-align: center;
+}
+
+.input{
+    background-color: white;
+}
+
+.button {
+    background-color: white;
+}

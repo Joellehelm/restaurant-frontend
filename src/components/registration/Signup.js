@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './registration.css'
 class Signup extends Component {
 
 
@@ -82,6 +83,7 @@ return (
         <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmit}>
           <input
+            class="input"
             placeholder="username"
             type="text"
             name="username"
@@ -89,6 +91,7 @@ return (
             onChange={this.handleChange}
           />
           <input
+            class="input"
             placeholder="email"
             type="text"
             name="email"
@@ -96,6 +99,7 @@ return (
             onChange={this.handleChange}
           />
           <input 
+            class="input"
             placeholder="password"
             type="password"
             name="password"
@@ -103,6 +107,7 @@ return (
             onChange={this.handleChange}
           />
           <input
+            class="input"
             placeholder="password confirmation"
             type="password"
             name="password_confirmation"
@@ -110,7 +115,7 @@ return (
             onChange={this.handleChange}
           />
         
-          <button placeholder="submit" type="submit">
+          <button class="button" placeholder="submit" type="submit">
             Sign Up
           </button>
       

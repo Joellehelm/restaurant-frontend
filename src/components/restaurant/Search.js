@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Search.css'
 
 class Search extends Component {
     render() {
@@ -10,7 +11,7 @@ class Search extends Component {
             <label> Place Type </label>
             <input placeholder='Category' type='text' name="placeType" onChange={this.props.handleChange} />
 
-            <input type="submit" value="Submit" />
+            <input class="button" type="submit" value="Submit" />
             </form>
         );
     }
