@@ -43,7 +43,7 @@ class Reviews extends Component {
             if(theseReviews.length > 0){
                 this.setState({reviews: theseReviews})
             } 
-            
+            this.showReviewCards()
         })
         
     }
@@ -51,7 +51,7 @@ class Reviews extends Component {
 
     componentDidMount(){
         this.fetchReviews()
-        this.showReviewCards()
+        
         
      
     }

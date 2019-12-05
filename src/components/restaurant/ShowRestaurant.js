@@ -25,7 +25,6 @@ class ShowRestaurant extends Component {
         return (
             <div>
         
-            <h1>HELLO</h1>
             <h1>{this.props.name}</h1>
             <img src={this.props.photo} alt={this.props.name}/>
             
