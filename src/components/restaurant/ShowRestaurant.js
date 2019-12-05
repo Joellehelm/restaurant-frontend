@@ -3,11 +3,12 @@ import Reviews from './reviews'
 
 class ShowRestaurant extends Component {
     state = {
-        favorited: false
+        favorited: localStorage.getItem('fav') || false
     }
   
     toggleFav = (event) => {
         this.setState({ favorited: true })
+        localStorage.setItem('fav', this.state.favorited)
         event.preventDefault()
 
         fetch('http://localhost:3001/favorites', {
