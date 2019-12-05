@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Search.css'
 
 class Search extends Component {
   
@@ -10,12 +11,12 @@ class Search extends Component {
         return (
             <form onSubmit={this.props.handleSubmit}>
             <label> City </label>
-            <input type='text' name="city" onChange={this.props.handleChange} />
+            <input class="input" type='text' name="city" onChange={this.props.handleChange} />
 
             <label> Place Type </label>
-            <input type='text' name="placeType" onChange={this.props.handleChange} />
+            <input class="input" type='text' name="placeType" onChange={this.props.handleChange} />
 
-            <input type="submit" value="Submit" />
+            <input class="button" type="submit" value="Submit" />
             </form>
         );
     }
