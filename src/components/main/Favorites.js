@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-export class Favorites extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
+const Favorites = props => {
+
+    return(
+        <div>
+            {props.favorites.map(favorite => <Favorites favorites={favorite} key={favorite.id}/>)}
+        </div>
+        )
     }
-}
 
 export default Favorites;

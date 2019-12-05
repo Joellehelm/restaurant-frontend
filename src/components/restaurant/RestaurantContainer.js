@@ -19,13 +19,13 @@ class RestaurantContainer extends Component {
             placePhoto: null,
             placeRating: null,
             placeId: null
-         
         }
     }
     
     handleSubmit = (event) => {
         event.preventDefault()
         this.setState({searched: true})
+        event.target.reset()
       
     }
 
@@ -72,7 +72,7 @@ class RestaurantContainer extends Component {
                 </div>
             :           
                 <div>
-                    <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+                    <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
                     {this.state.searched === true ?                    
                     <Restaurants showPlace={this.showPlace} proxyUrl={this.state.proxyUrl} city={this.state.city} placeType={this.state.placeType} user={this.props.user} />
                     :

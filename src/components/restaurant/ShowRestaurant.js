@@ -8,7 +8,7 @@ class ShowRestaurant extends Component {
   
     toggleFav = (event) => {
         this.setState({ favorited: true })
-        localStorage.setItem('fav', this.state.favorited)
+        localStorage.setItem('fav', { favorited: true })
         event.preventDefault()
 
         fetch('http://localhost:3001/favorites', {
@@ -33,7 +33,7 @@ class ShowRestaurant extends Component {
             
 
             <button onClick={this.toggleFav}>
-            {this.state.favorited ? "Favorited!" : "Add To Favorites" }
+            {this.state.favorited === true ? 'Favorited!' : 'Add To Favorites' }
             </button>
             </div>
         );
