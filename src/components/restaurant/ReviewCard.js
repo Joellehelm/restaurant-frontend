@@ -31,6 +31,14 @@ class ReviewCard extends Component {
         })
     }
 
+    handleDelete = () => {
+        // event.preventDefault()
+        fetch(`http://localhost:3001/reviews/${this.props.reviewId}`, {
+            method: 'DELETE'
+        }) 
+        .then(r => r.json())
+    }
+
     render() {
         return (
             <div>
@@ -42,9 +50,14 @@ class ReviewCard extends Component {
             <textarea id="review-edit" name="reviewEdit"/>
             <input type="submit" value="Submit" />
             </form> : null}
+
+            {this.props.currentUser.id === this.props.commentUserId ? <button onClick={() => this.handleDelete()}>Destroy</button> : null}
+            
             </div>
         );
     }
 }
 
 export default ReviewCard;
+
+
