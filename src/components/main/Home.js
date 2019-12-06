@@ -25,26 +25,26 @@ return (
       
       { 
         props.loggedInStatus ? 
-        <div class="maincontainer"> 
-        <div class="logoutlink"><Link to='/logout' onClick={handleClick}>Log Out</Link> </div>
+        <div className="maincontainer"> 
+        <div className="logoutlink"><Link to='/logout' onClick={handleClick}>Log Out</Link> </div>
         <h1>Hello {props.user.username}</h1> 
-        <MainContainer user={props.user}/>
+        <MainContainer navClicked={props.navClicked} user={props.user}/>
        </div>
        : 
 
-        <div class="logsignlink"> <Link to='/login'>
-          <button class="button" id="login">
+        <div className="logsignlink"> <Link to='/login'>
+          <button className="button" id="login">
 	      Login
-	      <div class="button__horizontal"></div>
-	      <div class="button__vertical"></div>
+	      <div className="button__horizontal"></div>
+	      <div className="button__vertical"></div>
         </button>
         </Link>
         <br></br>
-        <Link to='/signup'><div class="signuptext">
-        <button class="button" id="sign">
+        <Link to='/signup'><div className="signuptext">
+        <button className="button" id="sign">
 	      Sign Up
-	      <div class="button__horizontal"></div>
-	      <div class="button__vertical"></div>
+	      <div className="button__horizontal"></div>
+	      <div className="button__vertical"></div>
         </button></div></Link>
         <br></br>
         </div>

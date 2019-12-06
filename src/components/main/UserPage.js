@@ -9,11 +9,26 @@ class UserPage extends Component {
         reviews: []
     }
 
+    componentDidMount(){
+        this.fetchFavorites()
+        this.fetchReviews()
+
+    }
+
+
     fetchFavorites = () => {
         fetch(`http://localhost:3001/favorites`)
         .then(r => r.json())
         .then(favs => {
-            this.setState({ favorites: favs })
+            let filterFavorites = []
+
+            favs.forEach(fav => {
+                if(fav.user_id ===this.props.user.id){
+                    filterFavorites.push(fav.restaurant_id)
+                }
+            })
+           
+            this.setState({ favorites: filterFavorites })
         })
     }
 
@@ -21,15 +36,27 @@ class UserPage extends Component {
         fetch(`http://localhost:3001/reviews`)
         .then(r => r.json())
         .then(revs => {
-            this.setState({ reviews: revs })
+          
+            let filter = []
+            
+            revs.forEach(rev => {
+                if(rev.user_id === this.props.user.id){
+                    filter.push(rev)
+                }
+            })
+           
+           
+           this.setState({reviews: filter})
+           
         })
     }
 
     render() {
+        // console.log(this.state.reviews)
         return (
             <div>
-                <Favorites favorites={this.state.favorites}/>
-                <Reviews reivews={this.state.reviews}/>
+                <Favorites user={this.props.user} favorites={this.state.favorites}/>
+                <Reviews user={this.props.user} reviews={this.state.reviews}/>
             </div>
         );
     }

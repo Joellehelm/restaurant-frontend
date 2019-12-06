@@ -3,20 +3,31 @@ import './NavBar.css'
 
 
 class NavBar extends Component {
-    
+    constructor(){
+        super()
+
+    }
    
+    handleSearch = () => {
+        this.props.navClicked("search")
+    }
+
+    handleFav = () => {
+        this.props.navClicked("favorites")
+    }
+
+  
 
 
     render() {
         return (
-        <div class="navbardiv">
-            <div class="container">
+        <div className="navbardiv">
+            <div className="container">
                 <nav>
-                    <h1 class="brand"><a class="brandtext" href="http://localhost:3000/">Re<span>v</span>wr</a></h1>
+                    <h1 className="brand"><a className="brandtext" href="http://localhost:3000/">Re<span>v</span>wr</a></h1>
                     <ul>
-                        <li><a class="navtext" href="#">Home</a></li>
-                        <li><a class="navtext" href="#">Search</a></li>
-                        <li><a class="navtext" href="#">Favorites</a></li>
+                        <li><a onClick={this.handleSearch.bind(this)} className="navtext">Search</a></li>
+                        <li><a onClick={this.handleFav.bind(this)}className="navtext">Comments</a></li>
                     
                     </ul>
                 </nav>

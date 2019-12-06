@@ -1,12 +1,49 @@
 import React, { Component } from 'react';
+import RestaurantCard from '../restaurant/RestaurantCard'
 
-const Favorites = props => {
+class Favorites extends Component {
+   constructor(){
+       super()
 
-    return(
-        <div>
-            {props.favorites.map(favorite => <Favorites favorites={favorite} key={favorite.id}/>)}
-        </div>
-        )
+       this.state = {
+           data: []
+       }
+   }
+
+  
+    
+   
+  
+
+
+    render() {
+        return (
+            <div>
+                {/* {this.showRestaurants()} */}
+            </div>
+        );
     }
+}
 
 export default Favorites;
+
+
+
+
+
+
+
+// {props.favorites.map((favorite, idx) => <RestaurantCard favorites={favorite} key={idx}/>)}
+
+
+
+
+
+
+
+
+
+
+
+
+

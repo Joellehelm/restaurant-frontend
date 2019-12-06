@@ -13,7 +13,8 @@ class App extends Component {
     super(props);
     this.state = { 
       isLoggedIn: false,
-      user: {}
+      user: {},
+      navClick: "none"
      };
   }
 componentDidMount() {
@@ -43,18 +44,25 @@ handleLogout = () => {
     user: {}
     })
   }
+
+
+  navClicked = (type) => {
+    this.setState({navClick: type})
+  }
+
+
 render() {
     return (
       
-      <div class="App">
-        <NavBar user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
-        <div class="login">
+      <div className="App">
+        <NavBar navClicked={this.navClicked} user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+        <div className="login">
         <BrowserRouter>
           <Switch>
             <Route 
               exact path='/' 
               render={props => (
-              <Home {...props} user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+              <Home {...props} navClicked={this.state.navClick} user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
             <Route 
