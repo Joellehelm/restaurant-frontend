@@ -24,10 +24,10 @@ class UserPage extends Component {
 
             favs.forEach(fav => {
                 if(fav.user_id ===this.props.user.id){
-                    filterFavorites.push(fav.restaurant_id)
+                    filterFavorites.push(fav)
                 }
             })
-           
+       
             this.setState({ favorites: filterFavorites })
         })
     }
