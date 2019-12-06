@@ -20,7 +20,7 @@ class ShowRestaurant extends Component {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({user_id: this.props.user.id, restaurant_id: this.props.placeId})
+            body: JSON.stringify({user_id: this.props.user.id, restaurant_id: this.props.placeId, name: this.props.name, photo: this.props.photo})
         })
     }}
 
