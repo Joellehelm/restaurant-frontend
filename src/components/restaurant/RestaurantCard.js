@@ -9,7 +9,7 @@ class RestaurantCard extends Component {
     render() {
         return (
             <div className="restaurantCard" onClick={() => this.props.showPlace(this.props.placeId)}>
-                <h1>{this.props.name}</h1>
+                <h3>{this.props.name}</h3>
                 <img src={this.props.photo} alt={this.props.name}/>
             </div>
         );

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import FavResCard from './favResCard';
 
 const Favorites = (props) => {
-debugger
+
     return (
-        <div>
+        <div className="favContainer">
             {props.favorites.map((favorite, idx) => 
             <FavResCard
             name={favorite.name}

@@ -27,7 +27,7 @@ class NavBar extends Component {
                     <h1 className="brand"><a className="brandtext" href="http://localhost:3000/">Re<span>v</span>wr</a></h1>
                     <ul>
                         <li><a onClick={this.handleSearch.bind(this)} className="navtext">Search</a></li>
-                        <li><a onClick={this.handleFav.bind(this)}className="navtext">Comments</a></li>
+                        <li><a onClick={this.handleFav.bind(this)}className="navtext">Favorites</a></li>
                     
                     </ul>
                 </nav>

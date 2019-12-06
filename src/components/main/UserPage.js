@@ -54,8 +54,10 @@ class UserPage extends Component {
     render() {
         // console.log(this.state.reviews)
         return (
-            <div>
+            <div className="userContainer">
+                {/* <h2>Favorites</h2> */}
                 <Favorites user={this.props.user} favorites={this.state.favorites}/>
+                {/* <h2>Reviews</h2> */}
                 <Reviews user={this.props.user} reviews={this.state.reviews}/>
             </div>
         );

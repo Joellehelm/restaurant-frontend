@@ -87,7 +87,7 @@ class Reviews extends Component {
     render() {
         return (
             <div className="reviewContainer">
-                <h1>Reviews</h1>
+                <h3 className="reviewText">Reviews</h3>
                 <div>
                     {this.state.reviews.length > 0 ? this.showReviewCards() : null}
                 </div>

@@ -26,8 +26,8 @@ return (
       { 
         props.loggedInStatus ? 
         <div className="maincontainer"> 
-        <div className="logoutlink"><Link to='/logout' onClick={handleClick}>Log Out</Link> </div>
-        <h1>Hello {props.user.username}</h1> 
+        <div className="logoutlink"><Link to='/logout' onClick={handleClick}><p className="logoutlink">Log Out</p></Link> </div>
+        <h2 className="welcome">Hello {props.user.username}</h2> 
         <MainContainer navClicked={props.navClicked} user={props.user}/>
        </div>
        : 
