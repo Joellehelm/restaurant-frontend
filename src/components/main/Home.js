@@ -25,9 +25,9 @@ return (
       
       { 
         props.loggedInStatus ? 
-       <div> 
+        <div class="maincontainer"> 
+        <div class="logoutlink"><Link to='/logout' onClick={handleClick}>Log Out</Link> </div>
         <h1>Hello {props.user.username}</h1> 
-        <Link to='/logout' onClick={handleClick}>Log Out</Link> 
         <MainContainer user={props.user}/>
        </div>
        : 

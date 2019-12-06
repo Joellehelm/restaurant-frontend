@@ -80,7 +80,7 @@ render() {
     const {username, email, password, password_confirmation} = this.state
 return (
       <div>
-        <h1>Sign Up</h1>
+       
         <form class="form" onSubmit={this.handleSubmit}>
           <input
             class="input"
@@ -115,7 +115,7 @@ return (
             onChange={this.handleChange}
           />
         
-          <button class="button" placeholder="submit" type="submit">
+          <button placeholder="submit" type="submit">
             Sign Up
           </button>
       

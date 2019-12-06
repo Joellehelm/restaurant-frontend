@@ -81,6 +81,17 @@ return (
             value={username}
             onChange={this.handleChange}
           />
+
+
+          
+  {/* <input type="text" id="inp" placeholder="&nbsp;" />
+  <span class="label">Label</span>
+  <span class="border"></span>
+  <label for="inp" class="inp"></label> */}
+         
+         
+         
+         
           <input
             class="input"
             placeholder="email"
@@ -97,7 +108,7 @@ return (
             value={password}
             onChange={this.handleChange}
           />
-          <button class="button" placeholder="submit" type="submit">
+          <button class="loginbutton" placeholder="submit" type="submit">
             <h4 class="logintext">Log In</h4>
           </button>
           <div>
