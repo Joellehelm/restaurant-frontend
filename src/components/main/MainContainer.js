@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import RestaurantContainer from '../restaurant/RestaurantContainer'
+import UserPage from './UserPage'
 
 class MainContainer extends Component {
 
-    // add state here and pass props up to determine which component gets rendered below
-    // such as restaurant container on default but when a nav bar link is clicked it can swap components to favorites etc.
+    
+    renderComponent = () => {
+        if(this.props.navClicked === "none" || this.props.navClicked === "search"){
+            return <RestaurantContainer user={this.props.user} />
+        }else if(this.props.navClicked === "favorites"){
+            return <UserPage user={this.props.user} />
+        }
+    }
+
     render() {
         return (
             <div>
-                <RestaurantContainer user={this.props.user} />
+              {this.props.navClicked === "favorites" ? <UserPage user={this.props.user} /> : <RestaurantContainer user={this.props.user} />}
             </div>
         );
     }

@@ -5,7 +5,9 @@ class ReviewCard extends Component {
         super()
 
         this.state = {
-            editing: false
+            editing: false,
+            deleting: false
+
         }
     }
 
@@ -33,13 +35,14 @@ class ReviewCard extends Component {
     }
 
     handleDelete = () => {
-        // event.preventDefault()
+       
         fetch(`http://localhost:3001/reviews/${this.props.reviewId}`, {
             method: 'DELETE'
         }) 
         .then(r => r.json())
-        .then(respone => {
-        this.props.renderReviews()
+        .then(response => {
+            this.setState({deleting: !this.state.deleting})
+            this.props.renderReviews()
         })
     }
 
@@ -55,8 +58,7 @@ class ReviewCard extends Component {
             <input type="submit" value="Submit" />
             </form> : null}
 
-            {this.props.currentUser.id === this.props.commentUserId ? <button onClick={() => this.handleDelete()}>Destroy</button> : null}
-            
+            {this.props.currentUser.id === this.props.commentUserId ? <button onClick={() => this.handleDelete()}>Delete</button> : null}
             </div>
         );
     }

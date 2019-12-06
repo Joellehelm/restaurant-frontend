@@ -3,7 +3,7 @@ import Reviews from './reviews'
 
 class ShowRestaurant extends Component {
     state = {
-        // favorited: localStorage.getItem('fav') || false
+       
         favorited: false
     }
   
@@ -11,7 +11,7 @@ class ShowRestaurant extends Component {
 
         if(this.state.favorited === false){
         this.setState({ favorited: true })
-        // localStorage.setItem('fav', { favorited: true })
+       
         event.preventDefault()
 
         fetch('http://localhost:3001/favorites', {
@@ -49,12 +49,7 @@ class ShowRestaurant extends Component {
             </button>
             
             <Reviews user={this.props.user} placeId={this.props.placeId}/>
-            
-
-
-            {/* <button class="whereisthis" onClick={this.toggleFav}>
-            {this.state.favorited === true ? 'Favorited!' : 'Add To Favorites' }
-            </button> */}
+          
             </div>
         );
     }

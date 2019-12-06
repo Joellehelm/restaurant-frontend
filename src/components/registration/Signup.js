@@ -45,7 +45,7 @@ handleSubmit = (event) => {
 
     .then(r => r.json())
     .then(response => {
-      debugger
+     
       if (response.status === 'created') {
         this.props.handleLogin(response)
         this.redirect()
@@ -81,9 +81,9 @@ render() {
 return (
       <div>
        
-        <form class="form" onSubmit={this.handleSubmit}>
+        <form className="form" onSubmit={this.handleSubmit}>
           <input
-            class="input"
+            className="input"
             placeholder="username"
             type="text"
             name="username"
@@ -91,7 +91,7 @@ return (
             onChange={this.handleChange}
           />
           <input
-            class="input"
+            className="input"
             placeholder="email"
             type="text"
             name="email"
@@ -99,7 +99,7 @@ return (
             onChange={this.handleChange}
           />
           <input 
-            class="input"
+            className="input"
             placeholder="password"
             type="password"
             name="password"
@@ -107,7 +107,7 @@ return (
             onChange={this.handleChange}
           />
           <input
-            class="input"
+            className="input"
             placeholder="password confirmation"
             type="password"
             name="password_confirmation"
