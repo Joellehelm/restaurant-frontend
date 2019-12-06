@@ -11,7 +11,7 @@ class Search extends Component {
             <label> Place Type </label>
             <input placeholder='Category' type='text' name="placeType" onChange={this.props.handleChange} />
 
-            <input class="button" type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
             </form>
         );
     }

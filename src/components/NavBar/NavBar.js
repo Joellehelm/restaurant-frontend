@@ -12,7 +12,7 @@ class NavBar extends Component {
         <div class="navbardiv">
             <div class="container">
                 <nav>
-                    <h1 class="brand"><a class="brandtext" href="http://localhost:3000/">Br<span>a</span>nd</a></h1>
+                    <h1 class="brand"><a class="brandtext" href="http://localhost:3000/">Re<span>v</span>wr</a></h1>
                     <ul>
                         <li><a class="navtext" href="#">Home</a></li>
                         <li><a class="navtext" href="#">Search</a></li>
