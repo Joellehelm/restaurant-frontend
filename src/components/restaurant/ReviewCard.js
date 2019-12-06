@@ -48,7 +48,7 @@ class ReviewCard extends Component {
 
     render() {
         return (
-            <div>
+            <div className="reviewCard">
             <h4>{this.props.comment}</h4>
             <h3>{this.props.username}</h3>
             {this.props.currentUser.id === this.props.commentUserId ? <button onClick={() => this.editToggle()}>Edit</button> : null}
