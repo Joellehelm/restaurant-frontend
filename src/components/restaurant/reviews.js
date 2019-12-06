@@ -86,12 +86,12 @@ class Reviews extends Component {
 
     render() {
         return (
-            <div>
+            <div className="reviewContainer">
                 <h1>Reviews</h1>
                 <div>
                     {this.state.reviews.length > 0 ? this.showReviewCards() : null}
                 </div>
-                <form onSubmit={this.handleSubmit}>
+                <form className="reviewForm" onSubmit={this.handleSubmit}>
                     <textarea id="review-text" name="review"/>
                     <input type="submit" value="Submit" />
                 </form>

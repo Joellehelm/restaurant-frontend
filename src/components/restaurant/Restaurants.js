@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RestaurantCard from './RestaurantCard'
 import ShowRestaurant from './ShowRestaurant'
+import './Restaurants.css'
 
 class Restaurants extends Component {
     constructor(){
@@ -25,6 +26,7 @@ class Restaurants extends Component {
         .then(response => {
         
             this.setState({data: response.results})
+            this.showRestaurants()
         })
        
       
@@ -68,7 +70,7 @@ class Restaurants extends Component {
         }
 
         return (
-            <div id="restaurant-container">            
+            <div className="restaurantContainer">            
                {this.showRestaurants()}
             </div>
         );

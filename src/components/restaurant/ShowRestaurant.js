@@ -44,11 +44,11 @@ class ShowRestaurant extends Component {
           
             <h1>{this.props.name}</h1>
             <img src={this.props.photo} alt={this.props.name}/>
-            <button onClick={this.toggleFav}>
-            {this.state.favorited === true ? "Favorited!" : "Add To Favorites" }
-            </button>
             
             <Reviews user={this.props.user} placeId={this.props.placeId}/>
+            <button className="favoriteButton" onClick={this.toggleFav}>
+            {this.state.favorited === true ? "Favorited!" : "Add To Favorites" }
+            </button>
           
             </div>
         );
