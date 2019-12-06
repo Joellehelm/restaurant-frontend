@@ -14,7 +14,9 @@ class Reviews extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const comment = event.target.review.value
         event.target.reset()
+        
 
         fetch('http://localhost:3001/reviews', {
             method: "POST",
@@ -22,10 +24,11 @@ class Reviews extends Component {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({comment: event.target.review.value, user_id: this.props.user.id, restaurant_id: this.props.placeId})
+            body: JSON.stringify({comment: comment, user_id: this.props.user.id, restaurant_id: this.props.placeId})
         })
         .then(r => r.json())
         .then(response => {
+            
             this.fetchReviews()
         })
     }
@@ -35,7 +38,7 @@ class Reviews extends Component {
         .then(r => r.json())
         .then(reviews => {
           
-
+         
            const theseReviews = reviews.filter(review => 
                 review.restaurant_id.includes(this.props.placeId)).map(correctReviews => {
                     return correctReviews

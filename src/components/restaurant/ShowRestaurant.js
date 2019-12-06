@@ -11,7 +11,7 @@ class ShowRestaurant extends Component {
 
         if(this.state.favorited === false){
         this.setState({ favorited: true })
-        localStorage.setItem('fav', { favorited: true })
+        // localStorage.setItem('fav', { favorited: true })
         event.preventDefault()
 
         fetch('http://localhost:3001/favorites', {
